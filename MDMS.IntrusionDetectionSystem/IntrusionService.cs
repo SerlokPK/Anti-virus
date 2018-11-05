@@ -9,6 +9,8 @@ namespace MDMS.IntrusionDetectionSystem
 {
     public class IntrusionService : IIntrusionService
     {
+
+
         public IntrusionService()
         {
         }
