@@ -1,4 +1,5 @@
-﻿using MDMS.ServiceContracts;
+﻿using MDMS.Models;
+using MDMS.ServiceContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace MDMS.IntrusionDetectionSystem
 
         }
 
-        public void AddIntrusion()
+        public void AddIntrusion(ProcessModel process)
         {
 
         }
