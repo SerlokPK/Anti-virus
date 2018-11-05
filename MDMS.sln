@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.IntrusionDetectionSyst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.ServiceContracts", "MDMS.ServiceContracts\MDMS.ServiceContracts.csproj", "{EFF81B80-F31D-4D50-B13B-066200ECA0A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Common", "MDMS.Utilities\MDMS.Common.csproj", "{6182976F-7A37-4B09-90DD-9699723497CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Common", "MDMS.Common\MDMS.Common.csproj", "{6182976F-7A37-4B09-90DD-9699723497CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
