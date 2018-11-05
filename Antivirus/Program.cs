@@ -10,7 +10,7 @@ namespace Antivirus
     {
         static void Main(string[] args)
         {
-            
+            //nestpo nestp
         }
     }
 }
