@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A46BE02-249D-449A-A639-73A3F69F020F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>MDMS.IntrusionDetectionSystem</RootNamespace>
-    <AssemblyName>MDMS.IntrusionDetectionSystem</AssemblyName>
+    <ProjectGuid>{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MDMS.Models</RootNamespace>
+    <AssemblyName>MDMS.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,22 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntrusionDetectionWorker.cs" />
-    <Compile Include="IntrusionService.cs" />
+    <Compile Include="ProcessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MDMS.Models\MDMS.Models.csproj">
-      <Project>{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}</Project>
-      <Name>MDMS.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MDMS.ServiceContracts\MDMS.ServiceContracts.csproj">
-      <Project>{EFF81B80-F31D-4D50-B13B-066200ECA0A5}</Project>
-      <Name>MDMS.ServiceContracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
