@@ -1,6 +1,7 @@
 ﻿using MDMS.Common.Utilities;
 using MDMS.ServiceContracts;
 using MDMS.Utilities.Models;
+using MDMS.Utilities.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,16 @@ namespace MDMS.IntrusionDetectionSystem
         /// </summary>
         public IntrusionService()
         {
+        }
+
+        public void LogCriticalIntrusions()
+        {
+            IEnumerable<Tuple<string, string, int>> intrusions = GetIntrusions();
+
+            if (intrusions == null)
+                return;
+
+            var elements = intrusions.ToList().Where(x => x.Item3 >= 5).LogIntrusions();
         }
 
         /// <summary>
