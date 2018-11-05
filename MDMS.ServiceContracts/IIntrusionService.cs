@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMS.IntrusionDetectionSystem
+namespace MDMS.ServiceContracts
 {
-    class Program
+    public interface IIntrusionService
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
