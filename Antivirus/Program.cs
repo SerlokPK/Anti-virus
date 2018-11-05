@@ -12,6 +12,7 @@ namespace Antivirus
         {
             //asdasdsad
             int a;
+            int mrsmirko;
         }
     }
 }
