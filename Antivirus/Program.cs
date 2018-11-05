@@ -10,6 +10,8 @@ namespace Antivirus
     {
         static void Main(string[] args)
         {
+            //asdasdsad
+            int a;
         }
     }
 }
