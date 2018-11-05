@@ -44,8 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Models\ProcessJson.cs" />
+    <Compile Include="ProcessJson.cs" />
     <Compile Include="Models\ProcessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

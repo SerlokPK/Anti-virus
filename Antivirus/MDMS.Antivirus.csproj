@@ -54,10 +54,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MDMS.Models\MDMS.Models.csproj">
-      <Project>{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}</Project>
-      <Name>MDMS.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MDMS.Utilities\MDMS.Utilities.csproj">
       <Project>{6182976F-7A37-4B09-90DD-9699723497CA}</Project>
       <Name>MDMS.Utilities</Name>

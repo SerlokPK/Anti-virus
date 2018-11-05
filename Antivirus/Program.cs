@@ -12,7 +12,7 @@ namespace Antivirus
         static void Main(string[] args)
         {
             ProcessJson deserializer = new ProcessJson();
-            deserializer.SerializeJson($"..\\..\\BlacklistConfig.json");
+            List<ProcessModel> blackList = deserializer.Deserialize($"..\\..\\BlacklistConfig.json");
 
             Console.ReadKey();
         }

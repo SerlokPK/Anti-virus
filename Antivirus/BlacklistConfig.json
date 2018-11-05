@@ -1,26 +1,28 @@
 [
   {
-    "process": {
-      "name": "Shavast",
-      "start": "13:45",
-      "end": "15:00",
-      "user": "Strahinja"
-    }
+
+    "name": "Shavast",
+    "user": "Strahinja",
+    "startHours": "17",
+    "startMinutes": "30",
+    "endHours": "4",
+    "endMinutes": "23"
   },
   {
-    "process": {
-      "name": "DhotoShop",
-      "start": "00:00",
-      "end": "07:00",
-      "user": "Dalibor"
-    }
+
+    "name": "DhotoShop",
+    "user": "Dalibor",
+    "startHours": "0",
+    "startMinutes": "30",
+    "endHours": "20",
+    "endMinutes": "23"
   },
   {
-    "process": {
-      "name": "Mirdzanopolis",
-      "start": "00:00",
-      "end": "21:00",
-      "user": "Mirko"
-    }
+    "name": "Mirdzanopolis",
+    "user": "Mirko",
+    "startHours": "22",
+    "startMinutes": "30",
+    "endHours": "12",
+    "endMinutes": "0"
   }
 ]

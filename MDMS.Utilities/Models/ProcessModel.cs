@@ -24,26 +24,23 @@ namespace MDMS.Utilities
         /// <summary>
         /// Hour from when process is forbidden to start.
         /// </summary>
-        
+        [JsonProperty("startHours")]
         public int StartHours { get; set; }
-
-        [JsonProperty("start")]
-        public string JsonStart { get; set; }
         /// <summary>
         /// Minute from when process is forbidden to start.
         /// </summary>
+        [JsonProperty("startMinutes")]
         public int StartMinutes { get; set; }
 
         /// <summary>
         /// Hour from when process is allowed to start.
         /// </summary>
-        
+        [JsonProperty("endHours")]
         public int EndHours { get; set; }
-        [JsonProperty("end")]
-        public string JsonEnd { get; set; }
         /// <summary>
         /// Minute from when process is allowed to start.
         /// </summary>
+        [JsonProperty("endMinutes")]
         public int EndMinutes { get; set; }
 
         /// <summary>
