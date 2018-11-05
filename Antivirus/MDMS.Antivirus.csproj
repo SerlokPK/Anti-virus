@@ -54,9 +54,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MDMS.Utilities\MDMS.Utilities.csproj">
+    <ProjectReference Include="..\MDMS.Utilities\MDMS.Common.csproj">
       <Project>{6182976F-7A37-4B09-90DD-9699723497CA}</Project>
-      <Name>MDMS.Utilities</Name>
+      <Name>MDMS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

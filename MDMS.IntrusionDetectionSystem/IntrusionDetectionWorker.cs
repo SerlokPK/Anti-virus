@@ -1,6 +1,8 @@
 ﻿using MDMS.ServiceContracts;
+using MDMS.Utilities.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Description;
@@ -28,7 +30,9 @@ namespace MDMS.IntrusionDetectionSystem
             Console.WriteLine("Press <enter> to stop service...");
 
             IntrusionService intrusion = new IntrusionService();
-            intrusion.AddIntrusion(new Models.ProcessModel("daca", "proces2", 17, 30, 18, 30));
+            intrusion.GetIntrusions();
+
+            intrusion.AddIntrusion(new ProcessModel("daca2", "proces5", 17, 30, 18, 30));
 
             Console.ReadLine();
             host.Close();

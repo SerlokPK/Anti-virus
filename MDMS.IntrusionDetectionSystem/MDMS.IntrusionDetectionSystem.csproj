@@ -37,6 +37,7 @@
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -60,9 +61,9 @@
       <Project>{EFF81B80-F31D-4D50-B13B-066200ECA0A5}</Project>
       <Name>MDMS.ServiceContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MDMS.Utilities\MDMS.Utilities.csproj">
+    <ProjectReference Include="..\MDMS.Utilities\MDMS.Common.csproj">
       <Project>{6182976F-7A37-4B09-90DD-9699723497CA}</Project>
-      <Name>MDMS.Utilities</Name>
+      <Name>MDMS.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

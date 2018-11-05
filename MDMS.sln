@@ -9,9 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.IntrusionDetectionSyst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.ServiceContracts", "MDMS.ServiceContracts\MDMS.ServiceContracts.csproj", "{EFF81B80-F31D-4D50-B13B-066200ECA0A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Models", "MDMS.Models\MDMS.Models.csproj", "{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Utilities", "MDMS.Utilities\MDMS.Utilities.csproj", "{6182976F-7A37-4B09-90DD-9699723497CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Common", "MDMS.Utilities\MDMS.Common.csproj", "{6182976F-7A37-4B09-90DD-9699723497CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{EFF81B80-F31D-4D50-B13B-066200ECA0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF81B80-F31D-4D50-B13B-066200ECA0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFF81B80-F31D-4D50-B13B-066200ECA0A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Release|Any CPU.ActiveCfg = Release|Any CPU

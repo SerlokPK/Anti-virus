@@ -1,4 +1,6 @@
-﻿using MDMS.Utilities;
+﻿using MDMS.Common.Utilities;
+using MDMS.Utilities;
+using MDMS.Utilities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,7 @@ namespace Antivirus
     {
         static void Main(string[] args)
         {
-            ProcessJson deserializer = new ProcessJson();
-            List<ProcessModel> blackList = deserializer.Deserialize($"..\\..\\BlacklistConfig.json");
+            List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
 
             Console.ReadKey();
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMS.Utilities
+namespace MDMS.Utilities.Models
 {
     public class ProcessModel
     {
@@ -26,6 +26,7 @@ namespace MDMS.Utilities
         /// </summary>
         [JsonProperty("startHours")]
         public int StartHours { get; set; }
+
         /// <summary>
         /// Minute from when process is forbidden to start.
         /// </summary>
@@ -37,6 +38,7 @@ namespace MDMS.Utilities
         /// </summary>
         [JsonProperty("endHours")]
         public int EndHours { get; set; }
+
         /// <summary>
         /// Minute from when process is allowed to start.
         /// </summary>
@@ -75,8 +77,7 @@ namespace MDMS.Utilities
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Procss:{Name}, User:{User}, Start time:{StartHours}:{StartMinutes}, End time:{EndHours}:{EndMinutes}";
+            return $"Process:{Name}, User:{User}, Start time:{StartHours}:{StartMinutes}, End time:{EndHours}:{EndMinutes}";
         }
-
     }
 }
