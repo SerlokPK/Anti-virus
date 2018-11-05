@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDMS.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,10 @@ namespace Antivirus
     {
         static void Main(string[] args)
         {
-            //nestpo nestp
+            ProcessJson deserializer = new ProcessJson();
+            List<ProcessModel> blackList = deserializer.Deserialize($"..\\..\\BlacklistConfig.json");
+
+            Console.ReadKey();
         }
     }
 }

@@ -1,0 +1,28 @@
+[
+  {
+
+    "name": "Shavast",
+    "user": "Strahinja",
+    "startHours": "17",
+    "startMinutes": "30",
+    "endHours": "4",
+    "endMinutes": "23"
+  },
+  {
+
+    "name": "DhotoShop",
+    "user": "Dalibor",
+    "startHours": "0",
+    "startMinutes": "30",
+    "endHours": "20",
+    "endMinutes": "23"
+  },
+  {
+    "name": "Mirdzanopolis",
+    "user": "Mirko",
+    "startHours": "22",
+    "startMinutes": "30",
+    "endHours": "12",
+    "endMinutes": "0"
+  }
+]
