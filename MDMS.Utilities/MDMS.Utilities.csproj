@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F0DF7D18-D5AF-4E71-9C33-5040DF480B17}</ProjectGuid>
+    <ProjectGuid>{6182976F-7A37-4B09-90DD-9699723497CA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MDMS.Models</RootNamespace>
-    <AssemblyName>MDMS.Models</AssemblyName>
+    <RootNamespace>MDMS.Utilities</RootNamespace>
+    <AssemblyName>MDMS.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Models\ProcessJson.cs" />
+    <Compile Include="Models\ProcessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

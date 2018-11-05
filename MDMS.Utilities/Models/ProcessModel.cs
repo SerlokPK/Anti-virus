@@ -1,28 +1,34 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MDMS.Models
+namespace MDMS.Utilities
 {
     public class ProcessModel
     {
         /// <summary>
         /// User that started process.
         /// </summary>
+        [JsonProperty("user")]
         public string User { get; set; }
 
         /// <summary>
         /// Process name.
         /// </summary>
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Hour from when process is forbidden to start.
         /// </summary>
-        public int StartHours { get; set; }
         
+        public int StartHours { get; set; }
+
+        [JsonProperty("start")]
+        public string JsonStart { get; set; }
         /// <summary>
         /// Minute from when process is forbidden to start.
         /// </summary>
@@ -31,8 +37,10 @@ namespace MDMS.Models
         /// <summary>
         /// Hour from when process is allowed to start.
         /// </summary>
+        
         public int EndHours { get; set; }
-
+        [JsonProperty("end")]
+        public string JsonEnd { get; set; }
         /// <summary>
         /// Minute from when process is allowed to start.
         /// </summary>
