@@ -1,10 +1,9 @@
 ﻿using MDMS.Models;
 using MDMS.ServiceContracts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace MDMS.IntrusionDetectionSystem
 {
@@ -23,8 +22,30 @@ namespace MDMS.IntrusionDetectionSystem
 
         public void AddIntrusion(ProcessModel process)
         {
+            
+            JsonSerializer serializer = new JsonSerializer();
 
+            if (!File.Exists("Intrusions"))
+            {
+                using (StreamWriter file = File.CreateText("Intrusions"))
+                {
+                    file.Write("[");
+                    serializer.Serialize(file, process);
+                    file.Write("]");
+                }
+            }
+            else
+            {
+                var jsonObjects = File.ReadAllText("Intrusions");
+                jsonObjects = jsonObjects.Remove(jsonObjects.Length - 1);
+                jsonObjects += ",";
+                jsonObjects += JsonConvert.SerializeObject(process);
+                jsonObjects += "]";
+                File.WriteAllText("Intrusions", jsonObjects);
+            }
+            
+
+           
         }
-
     }
 }
