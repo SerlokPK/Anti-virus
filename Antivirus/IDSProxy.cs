@@ -19,7 +19,7 @@ namespace Antivirus
             proxy = this.CreateChannel();
         }
 
-        public void AddIntrusion(ProcessModel process)
+        public void AddIntrusion(List<ProcessModel> process)
         {
             try
             {
