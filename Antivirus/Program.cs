@@ -17,34 +17,27 @@ namespace Antivirus
     class Program
     {
         private static readonly string _timer = ConfigurationManager.AppSettings["Timer"];
+        static ConfigCheck configCheck = new ConfigCheck();
         static void Main(string[] args)
         {
 
             Task invoker = Task.Factory.StartNew(Checker);
 
-            string validHash = string.Empty;
-            string path = $"..\\Debug\\validHash.txt";
-            List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
-
-            if (!File.Exists(path))
+            while(true)
             {
-                using (StreamWriter file =File.CreateText(path)){ }
-            }
-
-            validHash = File.ReadAllText(path);
-
-            ConfigCheck cc = new ConfigCheck();
-
-            Task<string> task1 = Task<string>.Factory.StartNew(() => cc.createConfigHash());
-            string rez = task1.Result;
-
-            if (validHash.Equals(rez))
-            {
-                Console.WriteLine("Konfiguracioni fajl je sacuvanog integriteta!");
-            }
-            else
-            {
-                Console.WriteLine("Konfiguracioni fajl je korigovan van programa!");
+                Console.WriteLine("-------MENU-------\n 1.Check blacklist configuration.\n 2.Change blacklist configuration.\n");
+                var izbor = Console.ReadLine();
+                switch(izbor)
+                {
+                    case "1":
+                        ConfigurationCheck();
+                        break;
+                    case "2":
+                        ProcessModel pm = ProcessModelCreation();
+                        ConvertJson.WriteToFile(pm, $"..\\..\\BlacklistConfig.json");
+                        configCheck.CreateOrUpdateConfigHash();
+                        break;
+                }
             }
 
             Console.ReadKey();
@@ -71,6 +64,44 @@ namespace Antivirus
 
                 Thread.Sleep(timer);
             }
+        }
+
+        private static void ConfigurationCheck()
+        {
+            string validHash = string.Empty;
+            string path = $"..\\Debug\\validHash.txt";
+            List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path)) { }
+            }
+
+            validHash = File.ReadAllText(path);
+
+            ConfigCheck cc = new ConfigCheck();
+
+            if (validHash.Equals(cc.ReadConfigHash()))
+            {
+                Console.WriteLine("Configuration file checksum is valid!");
+            }
+            else
+            {
+                Console.WriteLine("Configuration file checksum is NOT valid!");
+            }
+        }
+
+        private static ProcessModel ProcessModelCreation()
+        {
+            Console.WriteLine("Create process: [User] [Name] [StartHours] [StartMinutes] [EndHours] [EndMinutes]");
+            string user = Console.ReadLine();
+            string name = Console.ReadLine();
+            string startH = Console.ReadLine(); 
+            string startM = Console.ReadLine();
+            string endH = Console.ReadLine();
+            string endM = Console.ReadLine();
+            ProcessModel pm = new ProcessModel(user, name, Int32.Parse(startH), Int32.Parse(startM), Int32.Parse(endH), Int32.Parse(endM));
+            return pm;
         }
     }
 }
