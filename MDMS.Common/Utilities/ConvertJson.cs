@@ -61,7 +61,7 @@ namespace MDMS.Common.Utilities
                 jsonObjects += ",";
                 jsonObjects += JsonConvert.SerializeObject(process);
                 jsonObjects += "]";
-                File.WriteAllText("Intrusions", jsonObjects);
+                File.WriteAllText(path, jsonObjects);
             }
         }
     }

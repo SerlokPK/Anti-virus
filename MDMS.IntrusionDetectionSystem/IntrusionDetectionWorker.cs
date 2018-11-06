@@ -29,10 +29,6 @@ namespace MDMS.IntrusionDetectionSystem
             Console.WriteLine("IntrusionService service is started.");
             Console.WriteLine("Press <enter> to stop service...");
 
-            IntrusionService intrusion = new IntrusionService();
-            intrusion.LogCriticalIntrusions();
-            intrusion.AddIntrusion(new ProcessModel("daca2", "proces5", 17, 30, 18, 30));
-
             Console.ReadLine();
             host.Close();
         }
