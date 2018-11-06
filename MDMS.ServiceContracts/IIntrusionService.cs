@@ -16,6 +16,6 @@ namespace MDMS.ServiceContracts
         /// </summary>
         /// <param name="process"></param>
         [OperationContract]
-        void AddIntrusion(ProcessModel process);
+        void AddIntrusion(List<ProcessModel> process);
     }
 }
