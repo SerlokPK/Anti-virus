@@ -11,12 +11,11 @@ namespace MDMS.Common.Utilities
 {
     public class ConfigCheck
     {
-
         public string createConfigHash()
         {
             //otvoriti fajl
             //sve linije uzeti
-            string json = File.ReadAllText(@"..\..\..\Antivirus\BlacklistConfig.json");
+            string json = File.ReadAllText(@"..\Antivirus\BlacklistConfig.json");
             //hashirati 
             string hashCode;
             using (MD5 md5 = MD5.Create())
@@ -26,10 +25,10 @@ namespace MDMS.Common.Utilities
                 ).Replace("-", String.Empty);
             }
 
-            File.WriteAllText($"..\\Debug\\validHash.txt", hashCode);
-
             return hashCode;
         }
+
+
 
     }
 }
