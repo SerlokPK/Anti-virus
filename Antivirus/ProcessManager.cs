@@ -25,7 +25,9 @@ namespace Antivirus
         {
             var processes = Process.GetProcesses().ToList();
 
-            return processes.SelectMany(x => blackList.FindAll(y => y.Name == x.ProcessName)).ToList();
+            var unauthorized = processes.SelectMany(x => blackList.FindAll(y => y.Name == x.ProcessName && y.User == GetProcessUser(x))).ToList();
+
+            return unauthorized;
         }
 
         private static string GetProcessUser(Process process)

@@ -39,8 +39,6 @@ namespace Antivirus
                         break;
                 }
             }
-
-            Console.ReadKey();
         }
 
         private static void Checker()
