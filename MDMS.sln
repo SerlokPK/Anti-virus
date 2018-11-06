@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.ServiceContracts", "MD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.Common", "MDMS.Common\MDMS.Common.csproj", "{6182976F-7A37-4B09-90DD-9699723497CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDMS.ProcessStarter", "MDMS.ProcessStarter\MDMS.ProcessStarter.csproj", "{5374EEF4-B365-4426-95D2-82A728DFD370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6182976F-7A37-4B09-90DD-9699723497CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5374EEF4-B365-4426-95D2-82A728DFD370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5374EEF4-B365-4426-95D2-82A728DFD370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5374EEF4-B365-4426-95D2-82A728DFD370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5374EEF4-B365-4426-95D2-82A728DFD370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
