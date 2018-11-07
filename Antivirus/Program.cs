@@ -60,15 +60,18 @@ namespace Antivirus
 			int timer = 5000;
 			Int32.TryParse(_timer, out timer);
 
-			while (true)
-			{
-				if (unauthorizedProcesses.Count > 0)
-				{
-					using (IDSProxy client = new IDSProxy(binding, address))
-					{
-						client.AddIntrusion(unauthorizedProcesses);
-					}
-				}
+            while (true)
+            {
+                List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
+                List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
+
+                if (unauthorizedProcesses.Count > 0)
+                {
+                    using (IDSProxy client = new IDSProxy(binding, address))
+                    {
+                        client.AddIntrusion(unauthorizedProcesses);
+                    }
+                }
 
 				Thread.Sleep(timer);
 			}

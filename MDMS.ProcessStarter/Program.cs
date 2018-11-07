@@ -30,26 +30,26 @@ namespace MDMS.ProcessStarter
 
         static void Main(string[] args)
         {
-            createUsers();
+            CreateUsers();
 
             string userChoice;
             string processChoice;
 
             do
             {
-                userChoice = userMenu();
+                userChoice = UserMenu();
 
                 if (userChoice == "EXIT")
                     break;
 
-                processChoice = processMenu();
+                processChoice = ProcessMenu();
 
-                startProcess(userChoice, processChoice);
+                StartProcess(userChoice, processChoice);
 
             } while (true);
 
 
-            removeUsers();
+            RemoveUsers();
 
             Console.ReadKey();
         }
@@ -60,7 +60,7 @@ namespace MDMS.ProcessStarter
         /// <returns>
         /// Name of a user.
         /// </returns>
-        static string userMenu()
+        static string UserMenu()
         {
             string retVal = "";
             string read = "";
@@ -109,7 +109,7 @@ namespace MDMS.ProcessStarter
         /// <returns>
         /// Name of a process.
         /// </returns>
-        static string processMenu()
+        static string ProcessMenu()
         {
             string retVal = "";
             string read = "";
@@ -151,26 +151,33 @@ namespace MDMS.ProcessStarter
         /// <summary>
         /// Starts a proces as a user.
         /// </summary>
-        static void startProcess(string user, string process)
+        static void StartProcess(string user, string process)
         {
-            SecureString pass = new SecureString();
-            Process p = new Process();
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.UserName = user;
-            p.StartInfo.FileName = Processes[process];
-            p.StartInfo.WorkingDirectory = Path.GetDirectoryName(Processes[process]);
-            foreach(char c in Users[user])
+            try
             {
-                pass.AppendChar(c);
+                SecureString pass = new SecureString();
+                Process p = new Process();
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.UserName = user;
+                p.StartInfo.FileName = Processes[process];
+                p.StartInfo.WorkingDirectory = Path.GetDirectoryName(Processes[process]);
+                foreach (char c in Users[user])
+                {
+                    pass.AppendChar(c);
+                }
+                p.StartInfo.Password = pass;
+                p.Start();
             }
-            p.StartInfo.Password = pass;
-            p.Start();
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
         /// Creates users.
         /// </summary>
-        static void createUsers()
+        static void CreateUsers()
         {
             foreach(KeyValuePair<string, string> kp in Users)
             {
@@ -200,7 +207,7 @@ namespace MDMS.ProcessStarter
         /// <summary>
         /// Removes created users.
         /// </summary>
-        static void removeUsers()
+        static void RemoveUsers()
         {
             foreach (KeyValuePair<string, string> kp in Users)
             {
