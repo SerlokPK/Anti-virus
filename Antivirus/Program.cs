@@ -48,9 +48,6 @@ namespace Antivirus
 		{
 			/// Define the expected service certificate. It is required to establish communication using certificates.
 			string srvCertCN = "virusService";
-
-			List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
-			List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList); 
 			NetTcpBinding binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 			X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
@@ -60,18 +57,18 @@ namespace Antivirus
 			int timer = 5000;
 			Int32.TryParse(_timer, out timer);
 
-            while (true)
-            {
-                List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
-                List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
+			while (true)
+			{
+				List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
+				List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
 
-                if (unauthorizedProcesses.Count > 0)
-                {
-                    using (IDSProxy client = new IDSProxy(binding, address))
-                    {
-                        client.AddIntrusion(unauthorizedProcesses);
-                    }
-                }
+				if (unauthorizedProcesses.Count > 0)
+				{
+					using (IDSProxy client = new IDSProxy(binding, address))
+					{
+						client.AddIntrusion(unauthorizedProcesses);
+					}
+				}
 
 				Thread.Sleep(timer);
 			}
