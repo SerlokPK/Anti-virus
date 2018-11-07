@@ -28,9 +28,9 @@
   {
     "name": "fontdrvhost",
     "user": "UMFD-1",
-    "startHours": "22",
-    "startMinutes": "30",
-    "endHours": "12",
-    "endMinutes": "0"
+    "startHours": "13",
+    "startMinutes": "20",
+    "endHours": "13",
+    "endMinutes": "59"
   }
 ]

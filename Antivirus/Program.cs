@@ -26,6 +26,7 @@ namespace Antivirus
             while(true)
             {
                 Console.WriteLine("-------MENU-------\n 1.Check blacklist configuration.\n 2.Change blacklist configuration.\n");
+                Console.Write("Option: ");
                 var izbor = Console.ReadLine();
                 switch(izbor)
                 {
@@ -91,12 +92,18 @@ namespace Antivirus
 
         private static ProcessModel ProcessModelCreation()
         {
-            Console.WriteLine("Create process: [User] [Name] [StartHours] [StartMinutes] [EndHours] [EndMinutes]");
+            Console.WriteLine("------------Create process--------------");
+            Console.Write("[User]: ");
             string user = Console.ReadLine();
+            Console.Write("[Name]: ");
             string name = Console.ReadLine();
-            string startH = Console.ReadLine(); 
+            Console.Write("[StartHours]: ");
+            string startH = Console.ReadLine();
+            Console.Write("[StartMinutes]: ");
             string startM = Console.ReadLine();
+            Console.Write("[EndHours]: ");
             string endH = Console.ReadLine();
+            Console.Write("[EndMinutes]: ");
             string endM = Console.ReadLine();
             ProcessModel pm = new ProcessModel(user, name, Int32.Parse(startH), Int32.Parse(startM), Int32.Parse(endH), Int32.Parse(endM));
             return pm;

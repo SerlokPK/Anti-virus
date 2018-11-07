@@ -24,8 +24,10 @@ namespace Antivirus
         public static List<ProcessModel> CheckIfUnauthorizedExists(List<ProcessModel> blackList)
         {
             var processes = Process.GetProcesses().ToList();
-
-            var unauthorized = processes.SelectMany(x => blackList.FindAll(y => y.Name == x.ProcessName && y.User == GetProcessUser(x))).ToList();
+                                                                                                                            //if we have greater hour, we don't need to check minutes, otherwise, we need to check minutes,
+                                                                                                                            //it's all done because of zero
+            var unauthorized = processes.SelectMany(x => blackList.FindAll(y => y.Name == x.ProcessName && y.User == GetProcessUser(x) && y.StartHours <=DateTime.Now.Hour && y.StartMinutes <= DateTime.Now.Minute
+                                                                                                                && ((y.EndHours > DateTime.Now.Hour) || (y.EndHours == DateTime.Now.Hour && y.EndMinutes >= DateTime.Now.Minute)))).ToList();
 
             return unauthorized;
         }
