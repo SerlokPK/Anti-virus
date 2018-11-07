@@ -44,8 +44,6 @@ namespace Antivirus
 
         private static void Checker()
         {
-            List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
-            List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList); 
             NetTcpBinding binding = new NetTcpBinding();
             string address = "net.tcp://localhost:9519/IntrusionService";
             int timer = 5000;
@@ -53,6 +51,9 @@ namespace Antivirus
 
             while (true)
             {
+                List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
+                List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
+
                 if (unauthorizedProcesses.Count > 0)
                 {
                     using (IDSProxy client = new IDSProxy(binding, address))
