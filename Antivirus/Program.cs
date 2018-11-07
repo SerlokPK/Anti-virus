@@ -92,19 +92,154 @@ namespace Antivirus
 
         private static ProcessModel ProcessModelCreation()
         {
+            string user, name, startH, startM, endH, endM;
+            bool userInput = false;
             Console.WriteLine("------------Create process--------------");
-            Console.Write("[User]: ");
-            string user = Console.ReadLine();
+            Console.Write("[User]: ");          
+            do
+            {
+                user = Console.ReadLine();
+                if (String.IsNullOrWhiteSpace(user))
+                {
+                    Console.WriteLine("You have to enter valid User!");
+                    userInput = false;
+                }
+                else if (user.All(char.IsDigit))
+                {
+                    Console.WriteLine("You have to enter at least one letter!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             Console.Write("[Name]: ");
-            string name = Console.ReadLine();
+            do
+            {
+                name = Console.ReadLine();
+                if (String.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("You have to enter valid Name!");
+                    userInput = false;
+                }
+                else if (name.All(char.IsDigit))
+                {
+                    Console.WriteLine("You have to enter at least one letter!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             Console.Write("[StartHours]: ");
-            string startH = Console.ReadLine();
+            do
+            {
+                startH = Console.ReadLine();
+                int temp;
+                Int32.TryParse(startH, out temp);
+                if (String.IsNullOrWhiteSpace(startH))
+                {
+                    Console.WriteLine("You have to enter something!");
+                    userInput = false;
+                }
+                else if (startH.All(char.IsLetter))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
+                else if (temp <= 0 || temp >= 23)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 23!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             Console.Write("[StartMinutes]: ");
-            string startM = Console.ReadLine();
+            do
+            {
+                startM = Console.ReadLine();
+                int temp = Int32.Parse(startM);
+                if (String.IsNullOrWhiteSpace(startM))
+                {
+                    Console.WriteLine("You have to enter something!");
+                    userInput = false;
+                }
+                else if (startM.All(char.IsLetter))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
+                else if (temp <= 0 || temp >= 59)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 59!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             Console.Write("[EndHours]: ");
-            string endH = Console.ReadLine();
+            do
+            {
+                endH = Console.ReadLine();
+                int temp = Int32.Parse(endH);
+                if (String.IsNullOrWhiteSpace(endH))
+                {
+                    Console.WriteLine("You have to enter something!");
+                    userInput = false;
+                }
+                else if (endH.All(char.IsLetter))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
+                else if (temp <= 0 || temp >= 23)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 23!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             Console.Write("[EndMinutes]: ");
-            string endM = Console.ReadLine();
+            do
+            {
+                endM = Console.ReadLine();
+                int temp = Int32.Parse(endM);
+                if (String.IsNullOrWhiteSpace(endM))
+                {
+                    Console.WriteLine("You have to enter something!");
+                    userInput = false;
+                }
+                else if (endM.All(char.IsLetter))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
+                else if (temp <= 0 || temp >= 59)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 59!");
+                    userInput = false;
+                }
+                else
+                {
+                    userInput = true;
+                }
+            } while (!userInput);
+
             ProcessModel pm = new ProcessModel(user, name, Int32.Parse(startH), Int32.Parse(startM), Int32.Parse(endH), Int32.Parse(endM));
             return pm;
         }
