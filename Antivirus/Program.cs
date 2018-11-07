@@ -160,7 +160,7 @@ namespace Antivirus
 					Console.WriteLine("You have to enter only numbers!");
 					userInput = false;
 				}
-				else if (temp <= 0 || temp >= 23)
+				else if (temp < 0 || temp > 23)
 				{
 					Console.WriteLine("You have to enter numbers between 0 and 23!");
 					userInput = false;
@@ -186,7 +186,7 @@ namespace Antivirus
 					Console.WriteLine("You have to enter only numbers!");
 					userInput = false;
 				}
-				else if (temp <= 0 || temp >= 59)
+				else if (temp < 0 || temp > 59)
 				{
 					Console.WriteLine("You have to enter numbers between 0 and 59!");
 					userInput = false;
@@ -212,7 +212,7 @@ namespace Antivirus
 					Console.WriteLine("You have to enter only numbers!");
 					userInput = false;
 				}
-				else if (temp <= 0 || temp >= 23)
+				else if (temp < 0 || temp > 23)
 				{
 					Console.WriteLine("You have to enter numbers between 0 and 23!");
 					userInput = false;
@@ -238,7 +238,7 @@ namespace Antivirus
 					Console.WriteLine("You have to enter only numbers!");
 					userInput = false;
 				}
-				else if (temp <= 0 || temp >= 59)
+				else if (temp < 0 || temp > 59)
 				{
 					Console.WriteLine("You have to enter numbers between 0 and 59!");
 					userInput = false;
