@@ -58,7 +58,7 @@ namespace MDMS.ProcessStarter
         /// Offers a menu to choose user.
         /// </summary>
         /// <returns>
-        /// Number of a user.
+        /// Name of a user.
         /// </returns>
         static string userMenu()
         {
@@ -75,7 +75,7 @@ namespace MDMS.ProcessStarter
                 Console.WriteLine("3.Start a process as Mirko");
                 Console.WriteLine("4.Start a process as Strahinja");
                 Console.WriteLine("5.Exit");
-
+                Console.Write("Option: ");
                 read = Console.ReadLine();
 
                 Int32.TryParse(read, out temp);
@@ -107,7 +107,7 @@ namespace MDMS.ProcessStarter
         /// Offers a menu to choose process.
         /// </summary>
         /// <returns>
-        /// Number of a process.
+        /// Name of a process.
         /// </returns>
         static string processMenu()
         {
@@ -123,7 +123,7 @@ namespace MDMS.ProcessStarter
                 Console.WriteLine("2.Start Google Chrome");
                 Console.WriteLine("3.Start Mozzila Firefox");
                 Console.WriteLine("4.Start Paint");
-
+                Console.Write("Option: ");
                 read = Console.ReadLine();
 
                 Int32.TryParse(read, out temp);

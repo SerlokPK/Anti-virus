@@ -18,19 +18,11 @@
     "endMinutes": "23"
   },
   {
-    "name": "Mirdzanopolis",
-    "user": "Mirko",
-    "startHours": "22",
-    "startMinutes": "30",
-    "endHours": "12",
-    "endMinutes": "0"
-  },
-  {
-    "name": "fontdrvhost",
-    "user": "UMFD-1",
+    "name": "notepad",
+    "user": "Mario",
     "startHours": "13",
-    "startMinutes": "20",
-    "endHours": "13",
-    "endMinutes": "59"
+    "startMinutes": "30",
+    "endHours": "15",
+    "endMinutes": "0"
   }
 ]
