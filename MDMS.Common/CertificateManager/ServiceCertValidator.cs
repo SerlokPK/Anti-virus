@@ -20,7 +20,7 @@ namespace MDMS.Common.CertificateManager
 		public override void Validate(X509Certificate2 certificate)
 		{
 			/// This will take service's certificate from storage
-			X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, "virusService");
+			X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, Formatter.ParseName(WindowsIdentity.GetCurrent().Name));
 
 			if (!certificate.Issuer.Equals(srvCert.Issuer))
 			{

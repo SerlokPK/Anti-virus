@@ -9,8 +9,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -47,7 +49,8 @@ namespace Antivirus
 		private static void Checker()
 		{
 			/// Define the expected service certificate. It is required to establish communication using certificates.
-			string srvCertCN = "virusService";
+            /// ALWAYS SERVER
+			string srvCertCN = "Dalibor";
 			NetTcpBinding binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
             X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
@@ -103,11 +106,13 @@ namespace Antivirus
 		{
 			string user, name, startH, startM, endH, endM;
 			bool userInput = false;
-			Console.WriteLine("------------Create process--------------");
-			Console.Write("[User]: ");          
+            Regex regexForNumbers = new Regex(@"[0-9]");
+            Console.WriteLine("------------Create process--------------");
+			         
 			do
 			{
-				user = Console.ReadLine();
+                Console.Write("[User]: ");
+                user = Console.ReadLine();
 				if (String.IsNullOrWhiteSpace(user))
 				{
 					Console.WriteLine("You have to enter valid User!");
@@ -124,10 +129,11 @@ namespace Antivirus
 				}
 			} while (!userInput);
 
-			Console.Write("[Name]: ");
+			
 			do
 			{
-				name = Console.ReadLine();
+                Console.Write("[Name]: ");
+                name = Console.ReadLine();
 				if (String.IsNullOrWhiteSpace(name))
 				{
 					Console.WriteLine("You have to enter valid Name!");
@@ -144,31 +150,41 @@ namespace Antivirus
 				}
 			} while (!userInput);
 
-			Console.Write("[StartHours]: ");
+			
 			do
 			{
-				startH = Console.ReadLine();
-				int temp;
-				Int32.TryParse(startH, out temp);
-				if (String.IsNullOrWhiteSpace(startH))
-				{
-					Console.WriteLine("You have to enter something!");
-					userInput = false;
-				}
-				else if (startH.All(char.IsLetter))
-				{
-					Console.WriteLine("You have to enter only numbers!");
-					userInput = false;
-				}
-				else if (temp < 0 || temp > 23)
-				{
-					Console.WriteLine("You have to enter numbers between 0 and 23!");
-					userInput = false;
-				}
-				else
-				{
-					userInput = true;
-				}
+                Console.Write("[StartHours]: ");
+                startH = Console.ReadLine();
+
+                if (regexForNumbers.IsMatch(startH))
+                {
+                    userInput = true;
+                }
+                else
+                {
+                    userInput = false;
+                } 
+				//int temp;
+				//Int32.TryParse(startH, out temp);
+				//if (String.IsNullOrWhiteSpace(startH))
+				//{
+				//	Console.WriteLine("You have to enter something!");
+				//	userInput = false;
+				//}
+				//else if (startH.All(char.IsLetter))
+				//{
+				//	Console.WriteLine("You have to enter only numbers!");
+				//	userInput = false;
+				//}
+				//else if (temp < 0 || temp > 23)
+				//{
+				//	Console.WriteLine("You have to enter numbers between 0 and 23!");
+				//	userInput = false;
+				//}
+				//else
+				//{
+				//	userInput = true;
+				//}
 			} while (!userInput);
 
 			Console.Write("[StartMinutes]: ");
