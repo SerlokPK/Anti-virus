@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -48,7 +49,8 @@ namespace Antivirus
 		private static void Checker()
 		{
 			/// Define the expected service certificate. It is required to establish communication using certificates.
-			string srvCertCN = "virusService";
+            /// ALWAYS SERVER
+			string srvCertCN = "Dalibor";
 			NetTcpBinding binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
             X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
