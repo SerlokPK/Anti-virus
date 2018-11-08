@@ -21,8 +21,8 @@
     "name": "notepad",
     "user": "Mario",
     "startHours": "13",
-    "startMinutes": "30",
+    "startMinutes": "0",
     "endHours": "19",
     "endMinutes": "0"
   }
-,{"user":"asd","name":"asd","startHours":12,"startMinutes":33,"endHours":12,"endMinutes":43},{"user":"Mario","name":"notepad","startHours":1,"startMinutes":2,"endHours":1,"endMinutes":2},{"user":"Mario","name":"notepad","startHours":16,"startMinutes":40,"endHours":17,"endMinutes":58}]
+,{"user":"asd","name":"asd","startHours":12,"startMinutes":33,"endHours":12,"endMinutes":43}]

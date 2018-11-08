@@ -22,6 +22,7 @@ namespace MDMS.IntrusionDetectionSystem
 			/// srvCertCN.SubjectName should be set to the service's username. .NET WindowsIdentity class provides information about Windows user running the given process
 			string srvCertCN = Formatter.ParseName(WindowsIdentity.GetCurrent().Name);
 			NetTcpBinding binding = new NetTcpBinding();
+            binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 			string address = "net.tcp://localhost:9519/IntrusionService";
 
 			ServiceHost host = new ServiceHost(typeof(IntrusionService));
