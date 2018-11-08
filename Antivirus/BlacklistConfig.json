@@ -1,16 +1,16 @@
 [
   {
 
-    "name": "Shavast",
+    "name": "notepad",
     "user": "Strahinja",
     "startHours": "10",
     "startMinutes": "30",
-    "endHours": "4",
+    "endHours": "20",
     "endMinutes": "23"
   },
   {
 
-    "name": "DhotoShop",
+    "name": "notepad",
     "user": "Dalibor",
     "startHours": "3",
     "startMinutes": "30",
