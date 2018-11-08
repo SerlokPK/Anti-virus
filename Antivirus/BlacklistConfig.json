@@ -3,7 +3,7 @@
 
     "name": "Shavast",
     "user": "Strahinja",
-    "startHours": "17",
+    "startHours": "20",
     "startMinutes": "30",
     "endHours": "4",
     "endMinutes": "23"
@@ -12,7 +12,7 @@
 
     "name": "DhotoShop",
     "user": "Dalibor",
-    "startHours": "0",
+    "startHours": "3",
     "startMinutes": "30",
     "endHours": "20",
     "endMinutes": "23"
@@ -25,4 +25,4 @@
     "endHours": "19",
     "endMinutes": "0"
   }
-,{"user":"Mario","name":"Mario","startHours":13,"startMinutes":13,"endHours":18,"endMinutes":18}]
+,{"user":"Mario","name":"Mario","startHours":13,"startMinutes":13,"endHours":18,"endMinutes":18},{"user":"asfsa","name":"asfsa","startHours":12,"startMinutes":23,"endHours":2,"endMinutes":2}]
