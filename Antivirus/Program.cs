@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -104,10 +105,11 @@ namespace Antivirus
 			string user, name, startH, startM, endH, endM;
 			bool userInput = false;
 			Console.WriteLine("------------Create process--------------");
-			Console.Write("[User]: ");          
 			do
 			{
-				user = Console.ReadLine();
+                Console.Write("[User]: ");
+                Regex regex = new Regex(@"^[a-zA-Z0-9]+$");
+                user = Console.ReadLine();
 				if (String.IsNullOrWhiteSpace(user))
 				{
 					Console.WriteLine("You have to enter valid User!");
@@ -118,16 +120,23 @@ namespace Antivirus
 					Console.WriteLine("You have to enter at least one letter!");
 					userInput = false;
 				}
+                else if(!regex.IsMatch(user))
+                {
+                    Console.WriteLine("You have to enter only letters and numbers!");
+                    userInput = false;
+                }
 				else
 				{
 					userInput = true;
 				}
 			} while (!userInput);
 
-			Console.Write("[Name]: ");
+			
 			do
 			{
-				name = Console.ReadLine();
+                Console.Write("[Name]: ");
+                Regex regex = new Regex(@"^[a-zA-Z0-9]+$");
+                name = Console.ReadLine();
 				if (String.IsNullOrWhiteSpace(name))
 				{
 					Console.WriteLine("You have to enter valid Name!");
@@ -138,16 +147,22 @@ namespace Antivirus
 					Console.WriteLine("You have to enter at least one letter!");
 					userInput = false;
 				}
-				else
+                else if (!regex.IsMatch(name))
+                {
+                    Console.WriteLine("You have to enter only letters and numbers!");
+                    userInput = false;
+                }
+                else
 				{
 					userInput = true;
 				}
 			} while (!userInput);
-
-			Console.Write("[StartHours]: ");
+		
 			do
 			{
-				startH = Console.ReadLine();
+                Console.Write("[StartHours]: ");
+                Regex regex = new Regex("^[0-9]+$");
+                startH = Console.ReadLine();
 				int temp;
 				Int32.TryParse(startH, out temp);
 				if (String.IsNullOrWhiteSpace(startH))
@@ -155,94 +170,100 @@ namespace Antivirus
 					Console.WriteLine("You have to enter something!");
 					userInput = false;
 				}
-				else if (startH.All(char.IsLetter))
-				{
-					Console.WriteLine("You have to enter only numbers!");
-					userInput = false;
-				}
 				else if (temp < 0 || temp > 23)
 				{
 					Console.WriteLine("You have to enter numbers between 0 and 23!");
 					userInput = false;
 				}
-				else
+                else if (!regex.IsMatch(startH))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
+                else
 				{
 					userInput = true;
 				}
 			} while (!userInput);
 
-			Console.Write("[StartMinutes]: ");
 			do
 			{
-				startM = Console.ReadLine();
-				int temp = Int32.Parse(startM);
+                Console.Write("[StartMinutes]: ");
+                Regex regex = new Regex("^[0-9]+$");
+                startM = Console.ReadLine();
+                int temp;
+				Int32.TryParse(startM, out temp);
 				if (String.IsNullOrWhiteSpace(startM))
 				{
 					Console.WriteLine("You have to enter something!");
 					userInput = false;
 				}
-				else if (startM.All(char.IsLetter))
-				{
-					Console.WriteLine("You have to enter only numbers!");
-					userInput = false;
-				}
-				else if (temp < 0 || temp > 59)
-				{
-					Console.WriteLine("You have to enter numbers between 0 and 59!");
-					userInput = false;
-				}
+                else if (temp < 0 || temp > 59)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 59!");
+                    userInput = false;
+                }
+                else if (!regex.IsMatch(startH))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
 				else
 				{
 					userInput = true;
 				}
 			} while (!userInput);
 
-			Console.Write("[EndHours]: ");
 			do
-			{
-				endH = Console.ReadLine();
-				int temp = Int32.Parse(endH);
+   			{
+                Console.Write("[StartMinutes]: ");
+                Regex regex = new Regex("^[0-9]+$");
+                endH = Console.ReadLine();
+                int temp;
+                Int32.TryParse(endH, out temp);
 				if (String.IsNullOrWhiteSpace(endH))
 				{
 					Console.WriteLine("You have to enter something!");
 					userInput = false;
 				}
-				else if (endH.All(char.IsLetter))
-				{
-					Console.WriteLine("You have to enter only numbers!");
-					userInput = false;
-				}
-				else if (temp < 0 || temp > 23)
-				{
-					Console.WriteLine("You have to enter numbers between 0 and 23!");
-					userInput = false;
-				}
+                else if (temp < 0 || temp > 23)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 23!");
+                    userInput = false;
+                }
+                else if (!regex.IsMatch(startH))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
 				else
 				{
 					userInput = true;
 				}
 			} while (!userInput);
 
-			Console.Write("[EndMinutes]: ");
 			do
 			{
-				endM = Console.ReadLine();
-				int temp = Int32.Parse(endM);
+                Console.Write("[EndMinutes]: ");
+                Regex regex = new Regex("^[0-9]+$");
+                endM = Console.ReadLine();
+                int temp;
+                Int32.TryParse(endM, out temp);
 				if (String.IsNullOrWhiteSpace(endM))
 				{
 					Console.WriteLine("You have to enter something!");
 					userInput = false;
 				}
-				else if (endM.All(char.IsLetter))
-				{
-					Console.WriteLine("You have to enter only numbers!");
-					userInput = false;
-				}
-				else if (temp < 0 || temp > 59)
-				{
-					Console.WriteLine("You have to enter numbers between 0 and 59!");
-					userInput = false;
-				}
+                else if (temp < 0 || temp > 59)
+                {
+                    Console.WriteLine("You have to enter numbers between 0 and 59!");
+                    userInput = false;
+                }
+                else if (!regex.IsMatch(startH))
+                {
+                    Console.WriteLine("You have to enter only numbers!");
+                    userInput = false;
+                }
 				else
 				{
 					userInput = true;
