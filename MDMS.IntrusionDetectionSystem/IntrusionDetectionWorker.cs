@@ -46,13 +46,23 @@ namespace MDMS.IntrusionDetectionSystem
 			///Set appropriate service's certificate on the host. Use CertManager class to obtain the certificate based on the "srvCertCN"
 			host.Credentials.ServiceCertificate.Certificate = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
 
-			host.Open();
+            try
+            {
+                host.Open();
 
-			Console.WriteLine("IntrusionService service is started.");
-			Console.WriteLine("Press <enter> to stop service...");
+                Console.WriteLine("IntrusionService service is started.");
+                Console.WriteLine("Press <enter> to stop service...");
 
-			Console.ReadLine();
-			host.Close();
+                Console.ReadLine();
+                host.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+                Console.WriteLine("Press <enter> exit...");
+                Console.ReadLine();
+            }
 		}
 	}
 }
