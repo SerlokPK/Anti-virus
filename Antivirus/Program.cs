@@ -22,14 +22,14 @@ namespace Antivirus
 	{
 		private static readonly string _timer = ConfigurationManager.AppSettings["Timer"];
 		static ConfigCheck configCheck = new ConfigCheck();
+        
 		static void Main(string[] args)
 		{
-
-			Task invoker = Task.Factory.StartNew(Checker);
+            Task invoker = Task.Factory.StartNew(Checker);
 
 			while(true)
 			{
-				Console.WriteLine("-------MENU-------\n 1.Check blacklist configuration.\n 2.Change blacklist configuration.\n");
+				Console.WriteLine("-------MENU-------\n 1.Check blacklist configuration.\n 2.Change blacklist configuration.\n 3.Save current blacklist configuration.\n 4.Exit application.\n");
 				Console.Write("Option: ");
 				var izbor = Console.ReadLine();
 				switch(izbor)
@@ -42,6 +42,12 @@ namespace Antivirus
 						ConvertJson.WriteToFile(pm, $"..\\..\\BlacklistConfig.json");
 						configCheck.CreateOrUpdateConfigHash();
 						break;
+                    case "3":
+                        configCheck.CreateOrUpdateConfigHash();
+                        break;
+                    case "4":
+                        Environment.Exit(0);
+                        break;
 				}
 			}
 		}
@@ -218,7 +224,7 @@ namespace Antivirus
 
 			do
    			{
-                Console.Write("[StartMinutes]: ");
+                Console.Write("[EndHours]: ");
                 Regex regex = new Regex("^[0-9]+$");
                 endH = Console.ReadLine();
                 int temp;
