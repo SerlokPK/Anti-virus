@@ -63,6 +63,14 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Certificates\antivirusCA.cer" />
+    <None Include="Certificates\antivirusCA.pvk" />
+    <None Include="Certificates\Dalibor.cer" />
+    <None Include="Certificates\Dalibor.pfx" />
+    <None Include="Certificates\Dalibor.pvk" />
+    <None Include="Certificates\Mario.cer" />
+    <None Include="Certificates\Mario.pfx" />
+    <None Include="Certificates\Mario.pvk" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
