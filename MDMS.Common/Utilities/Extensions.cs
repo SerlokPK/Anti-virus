@@ -18,20 +18,18 @@ namespace MDMS.Utilities.Utilities
         {
         }
 
-        public static IEnumerable<Tuple<string, string, int>> LogIntrusions(this IEnumerable<Tuple<string, string, int>> data)
+        public static void LogIntrusions(this IEnumerable<Tuple<string, string, int>> data)
         {
             if (data.Count() == 0)
             {
                 Logger.Info($"No critical intrusions.");
-                return null;
+                return;
             }
 
             foreach(var tuple in data)
             {
                 Logger.Info($"Critical: Name:{tuple.Item1}, User:{tuple.Item2}, Count:{tuple.Item3}");
             }
-
-            return data;
         }
     }
 }

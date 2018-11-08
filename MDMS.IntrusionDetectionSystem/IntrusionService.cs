@@ -14,8 +14,13 @@ namespace MDMS.IntrusionDetectionSystem
 {
     public class IntrusionService : IIntrusionService
     {
+        // Create instance of an logger
         private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        // Get name of an txt file where to store
         private readonly string _path = ConfigurationManager.AppSettings["Intrusions"];
+
+        // Get numbers of max intrusions 
         private int _maxIntrusionsAllowed = Int32.Parse(ConfigurationManager.AppSettings["MaxIntrusionNumber"]);
 
         /// <summary>
@@ -54,8 +59,7 @@ namespace MDMS.IntrusionDetectionSystem
                 if (intrusions == null)
                     return;
 
-                //if needed later to return critical intrusions to AV service
-                var elements = intrusions.ToList().Where(x => x.Item3 >= _maxIntrusionsAllowed).LogIntrusions();
+                intrusions.Where(x => x.Item3 >= _maxIntrusionsAllowed).LogIntrusions();
             }
             catch (Exception e)
             {

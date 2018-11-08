@@ -54,7 +54,7 @@ namespace Antivirus
 			NetTcpBinding binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
             X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, srvCertCN);
-			EndpointAddress address = new EndpointAddress(new Uri("net.tcp://localhost:9519/IntrusionService"),
+			EndpointAddress address = new EndpointAddress(new Uri("net.tcp://10.1.212.105:9519/IntrusionService"),
 									  new X509CertificateEndpointIdentity(srvCert));
 
 			int timer = 5000;
