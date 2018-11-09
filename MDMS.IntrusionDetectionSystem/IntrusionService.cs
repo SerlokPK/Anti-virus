@@ -14,13 +14,13 @@ namespace MDMS.IntrusionDetectionSystem
 {
     public class IntrusionService : IIntrusionService
     {
-        // Create instance of an logger
+        // Create instance of logger
         private static readonly ILog Logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        // Get name of an txt file where to store
+        // Get name of txt file where to store
         private readonly string _path = ConfigurationManager.AppSettings["Intrusions"];
 
-        // Get numbers of max intrusions 
+        // Get number of max intrusions 
         private int _maxIntrusionsAllowed = Int32.Parse(ConfigurationManager.AppSettings["MaxIntrusionNumber"]);
 
         /// <summary>
