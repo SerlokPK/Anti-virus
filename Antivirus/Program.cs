@@ -57,6 +57,8 @@ namespace Antivirus
 			/// Define the expected service certificate. It is required to establish communication using certificates.
             /// ALWAYS SERVER
 			string srvCertCN = "Dalibor";
+			List<ProcessModel> blackList = new List<ProcessModel>();
+			List<ProcessModel> unauthorizedProcesses = new List<ProcessModel>();
 			NetTcpBinding binding = new NetTcpBinding();
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
             X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, srvCertCN);
@@ -68,8 +70,8 @@ namespace Antivirus
 
 			while (true)
 			{
-				List<ProcessModel> blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
-				List<ProcessModel> unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
+				blackList = ConvertJson.Deserialize($"..\\..\\BlacklistConfig.json");
+				unauthorizedProcesses = ProcessManager.CheckIfUnauthorizedExists(blackList);
 
 				if (unauthorizedProcesses.Count > 0)
 				{
